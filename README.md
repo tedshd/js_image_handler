@@ -28,4 +28,4 @@ canvas(canvas): this canvas show resized image
 
 resized image want to upload, use this function handle image to FileList
 
-image(Blob): Blob object from `resizedImage`
+image(Blob|Blob Array): Blob object from `resizedImage`
