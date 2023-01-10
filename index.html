@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./js_image_handler.js"></script>
+</head>
+<body>
+  <input type="file" name="image" id="">
+</body>
+<script>
+  document.querySelector('input[type=file]').addEventListener('change', async (e) => {
+    const files = e.target.files
+    let newImages = []
+    let info = await getImagesInfo(files) // get upload image info
+    console.log(files)
+
+    // resize image resolution
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i]
+      let resized = await resizeImage(file, 1000)
+      console.log(resized)
+      document.body.appendChild(resized.canvas)
+      newImages.push(resized.resizedImage)
+    }
+
+    // new resized image use as upload file
+    e.target.files = newImageFile(newImages)
+    console.log(e.target.files)
+  })
+</script>
+</html>
