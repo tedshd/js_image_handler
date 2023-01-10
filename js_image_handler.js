@@ -54,7 +54,7 @@
     }
 
     function dataURLToBlob (dataURL) {
-      let BASE64_MARKER = ';base64,';
+      let BASE64_MARKER = ';base64,'
       if (dataURL.indexOf(BASE64_MARKER) == -1) {
         let parts = dataURL.split(',')
         let contentType = parts[0].split(':')[1]
@@ -89,7 +89,7 @@
 
     let readerEventResult = await getReaderResult()
     let image = new Image()
-    image.src = readerEventResult;
+    image.src = readerEventResult
 
     return new Promise(resolve => {
       image.onload = () => {
@@ -109,7 +109,6 @@
         canvas.getContext('2d').drawImage(image, 0, 0, width, height)
         let dataUrl = canvas.toDataURL('image/png')
         let resizedImage = dataURLToBlob(dataUrl)
-        console.log('resizedImage', resizedImage)
         resolve({resizedImage, canvas})
       }
     })
@@ -133,7 +132,7 @@
       })
       dataTransfer.items.add(tmpFile)
     }
-    return dataTransfer.files;
+    return dataTransfer.files
   }
 
   window.getImagesInfo = getImagesInfo

@@ -2,6 +2,8 @@
 
 use javascript handle image pre upload file
 
+only support jpg / jpeg / png
+
 ## Usage
 
 ### getImagesInfo(FileList)
