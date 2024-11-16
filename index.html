@@ -1,33 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="./js_image_handler.js"></script>
 </head>
+
 <body>
   <input type="file" name="image" id="">
+  <hr>
+  <button id="dol">Download</button>
 </body>
 <script>
+  let ImageBolb = null;
   document.querySelector('input[type=file]').addEventListener('change', async (e) => {
     const files = e.target.files
     let newImages = []
     let info = await getImagesInfo(files) // get upload image info
-    console.log(files)
+    console.log('files', files)
+    console.log('info', info)
 
     // resize image resolution
     for (let i = 0; i < files.length; i++) {
       const file = files[i]
       let resized = await resizeImage(file, 1000)
-      console.log(resized)
+      console.log('resized', resized)
       document.body.appendChild(resized.canvas)
       newImages.push(resized.resizedImage)
+      ImageBolb = resized.resizedImage
     }
 
     // new resized image use as upload file
     e.target.files = newImageFile(newImages)
     console.log(e.target.files)
   })
+
+  document.querySelector('#dol').addEventListener('click', async () => {
+    downloadImage(ImageBolb, 'download')
+  })
+
+
 </script>
+
 </html>
