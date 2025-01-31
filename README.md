@@ -101,3 +101,11 @@ download image
 * imageBlob(Blob): image
 
 * filename(String): download file
+
+### blob2ImageBase64(Blob)
+
+trans binary image to base64 image
+
+this function return
+
+* base64 image string
