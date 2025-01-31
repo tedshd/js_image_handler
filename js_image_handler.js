@@ -224,6 +224,15 @@
     URL.revokeObjectURL(url);
   }
 
+  const blob2ImageBase64 = (blob) => {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(blob);
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+    });
+  }
+
   window.getImagesInfo = getImagesInfo
   window.resizeImage = resizeImage
   window.newImageFile = newImageFile
@@ -232,4 +241,5 @@
   window.uploadImage = uploadImage
   window.base64ToFilePNG = base64ToFilePNG
   window.downloadImage = downloadImage
+  window.blob2ImageBase64 = blob2ImageBase64
 })()
