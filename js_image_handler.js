@@ -249,6 +249,26 @@
   return canvas.toDataURL(mimeType);
 }
 
+  // TODO
+  // const videoToBase64 = async (video: HTMLVideoElement, sizeInfo: CanvasSizeInfo): Promise<string> => {
+  //   const canvas = document.createElement('canvas');
+  //   canvas.width = sizeInfo.canvasWidth;
+  //   canvas.height = sizeInfo.canvasHeight;
+  //   const ctx = canvas.getContext('2d');
+  //   if (!ctx) {
+  //     throw new Error('Failed to get 2d context from canvas');
+  //   }
+  //   ctx.drawImage(video, sizeInfo.startX,
+  //     sizeInfo.startY,
+  //     sizeInfo.width,
+  //     sizeInfo.height,
+  //     0,
+  //     0,
+  //     sizeInfo.canvasWidth,
+  //     sizeInfo.canvasHeight);
+  //   return canvas.toDataURL('image/png');
+  // }
+
   window.getImagesInfo = getImagesInfo
   window.resizeImage = resizeImage
   window.newImageFile = newImageFile
