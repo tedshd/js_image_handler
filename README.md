@@ -109,3 +109,16 @@ trans binary image to base64 image
 this function return
 
 * base64 image string
+
+### imageDataToBase64(data, width, height, mimeType)
+
+trans image uint8Array to base64 image
+
+* data(Uint8Array): image Uint8Array data
+* width(number): image width
+* height(number): image height
+* mimeType(string): image mimeType, ex: "image/png"
+
+this function return
+
+* base64 image string
