@@ -233,6 +233,22 @@
     });
   }
 
+  const imageDataToBase64 = (data, width, height, mimeType) => {
+  // 1. 創建 Canvas
+  const canvas = document.createElement("canvas");
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext("2d")!;
+
+  // 2. 建立 ImageData，填充像素數據
+  const imgData = ctx.createImageData(width, height);
+  imgData.data.set(new Uint8ClampedArray(data)); // 確保格式正確
+  ctx.putImageData(imgData, 0, 0);
+
+  // 3. 轉換為 Base64
+  return canvas.toDataURL(mimeType);
+}
+
   window.getImagesInfo = getImagesInfo
   window.resizeImage = resizeImage
   window.newImageFile = newImageFile
@@ -242,4 +258,5 @@
   window.base64ToFilePNG = base64ToFilePNG
   window.downloadImage = downloadImage
   window.blob2ImageBase64 = blob2ImageBase64
+  window.imageDataToBase64 = imageDataToBase64
 })()
